@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">DemoKin</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -103,7 +103,8 @@
 <span>  summary_kin <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  sex_Focal <span class="op">=</span> <span class="st">"Female"</span>,</span>
 <span>  initial_stage_Focal <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  <span class="va">output_years</span></span>
+<span>  <span class="va">output_years</span>,</span>
+<span>  fast <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -163,6 +164,17 @@ a list of stochastic matrices which describe age-specific male probabilities of 
 
 <dt id="arg-output-years">output_years<a class="anchor" aria-label="anchor" href="#arg-output-years"></a></dt>
 <dd><p>vector. The times at which we wish to count kin: start year = output_years1, and end year = output_yearslength.</p></dd>
+
+
+<dt id="arg-fast">fast<a class="anchor" aria-label="anchor" href="#arg-fast"></a></dt>
+<dd><p>logical. If <code>FALSE</code> (the default) the model runs with the original R
+implementation (dense matrix products in R, output tables assembled with dplyr, tidyr
+and data.table). If <code>TRUE</code>, the same projections run in compiled C++ code and the output
+tables are built directly, which is typically 5 to 200 times faster on large inputs
+(long time series, two-sex, cause-of-death or multistate models). The returned object is
+identical in both cases: same values, same columns, same row order, same classes. Use
+<code>fast = TRUE</code> for production runs and <code>fast = FALSE</code> to read or step through the model
+equations in R.</p></dd>
 
 </dl></div>
     <div id="value">
