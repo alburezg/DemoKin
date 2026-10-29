@@ -53,6 +53,12 @@ kin count distribution by kin and age."><!-- mathjax --><script src="https://cdn
     <li>
       <a href="../articles/2_2_TwoSex_TimeVarying_AgeStage.html">Two-sex time-varying Age-Stage model</a>
     </li>
+    <li>
+      <a href="../articles/3_0_Technicals.html">Technical details</a>
+    </li>
+    <li>
+      <a href="../articles/4_0_Recent_changes.html">Recent changes</a>
+    </li>
   </ul></li>
 <li>
   <a href="../reference/index.html">Functions</a>
@@ -96,6 +102,7 @@ kin count distribution by kin and age.</p>
 <span>  output_period <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  output_kin <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  output_age_focal <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  output_year_last <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  birth_female <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2.04</span>,</span>
 <span>  summary_kin <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -135,7 +142,7 @@ in a more general perspective) with rows as ages (and columns as years in case o
 
 
 <dt id="arg-output-kin">output_kin<a class="anchor" aria-label="anchor" href="#arg-output-kin"></a></dt>
-<dd><p>character. kin types to return: "m" for mother, "d" for daughter,...</p></dd>
+<dd><p>character. kin types to return: "m" for mother, "d" for daughter,... See <code>demokin_codes</code>.</p></dd>
 
 
 <dt id="arg-output-age-focal">output_age_focal<a class="anchor" aria-label="anchor" href="#arg-output-age-focal"></a></dt>
@@ -143,12 +150,15 @@ in a more general perspective) with rows as ages (and columns as years in case o
 
 
 <dt id="arg-birth-female">birth_female<a class="anchor" aria-label="anchor" href="#arg-birth-female"></a></dt>
-<dd><p>numeric. Female portion at birth. This multiplies <code>f</code> argument. If <code>f</code> is already for female offspring,</p></dd>
+<dd><p>numeric. Female portion at birth. This multiplies <code>f</code> argument. If <code>f</code> is already for female offspring, this needs to be set as 1. This can be a vector of length equal to the number of years in the input data, or a single value that will be repeated for all years.</p></dd>
 
 
 <dt id="arg-summary-kin">summary_kin<a class="anchor" aria-label="anchor" href="#arg-summary-kin"></a></dt>
-<dd><p>logical. Whether or not include <code>kin_summary</code> table (see output details). Default <code>TRUE</code>.
-this needs to be set as 1.</p></dd>
+<dd><p>logical. Whether or not include <code>kin_summary</code> table (see output details). Default <code>TRUE</code>.</p></dd>
+
+
+<dt id="arg-output-year-last-">output_year_last.<a class="anchor" aria-label="anchor" href="#arg-output-year-last-"></a></dt>
+<dd><p>Include or not last year of living kin. If rates are from years 0 to n, not including is no output in n+1. Deafult FALSE.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -202,7 +212,7 @@ grouping by cohort or period (depending on the given arguments):
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
       </footer></div>
